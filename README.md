@@ -76,3 +76,14 @@ If handle the differential bundling for the various browsers and we can define t
      - 'browserlist': [
         'last 2 versions'
      ]
+
+# Scripts
+
+While `npx parcel index.html` is used to run a dev build for the app and host it to dev-sever using the `dist` and `parcel-cache` to make the build faster. We can also define custom scripts to run the dev/prod by defining the scripts in the 
+`package.json` as below: 
+
+     "scripts": {
+        "start": " parcel index.html",
+        "build": " parcel build index.html",
+        "test": "jest"
+    },
