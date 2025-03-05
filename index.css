@@ -28,8 +28,9 @@ body{
 }
 
 .nav-links > ul {
-    display: flex;
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links > ul > li{
@@ -53,10 +54,11 @@ body{
 }
 
 .resContainer {
-    grid-template-columns: repeat(4, 1fr);
     display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
 }
+    
 
 .resCard {
     border: 1px solid #0000;
@@ -79,10 +81,22 @@ body{
     line-height: 22px;
     width: 100%;
     margin: 10px 0;
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .resCard p {
     margin-bottom: 10px;
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .resCard .image {
@@ -102,4 +116,38 @@ body{
     padding: 20px 32px;
     background: #f0f0f0fe;
     text-align: center;
+}
+
+.filterBtn button {
+    padding: 10px 20px;
+    background: #126a37;
+    color: #fff;
+    border: navajowhite;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 10px 10px 10px;
+    cursor: pointer;
+}
+
+.shimmer .resCard {
+    background: #e5e5e524;
+}
+
+.shimmer .resCard h1, .shimmer .resCard p {
+    background: #efefef;
+    height: 20px;
+}
+
+.shimmer .resCard .image div {
+    background-color: #f0f0f05e;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.filterBtn input[type="text"] {
+    height: 36px;
+    width: 266px;
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+    padding: 0 15px;
 }

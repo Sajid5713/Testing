@@ -148,3 +148,77 @@ without rendering the whole componenet to get rerendered again to display the vi
 
 The approach where `user interface (UI)` is not hard coded but dynamically build on a config/data (API,DB or JSON).
 This makes UI components flexible, reusable, and scalable.
+
+# Code splitting
+
+As out code is now not optimize we will break the code into chunks, to make our code more readable and developer friendly.
+We create a `src` folder and will place our main `App.js` inside it. Remember to insert the root file into src and group the 
+components into separate folder `Components`. Remember to keep the naming convention CamelCase to identifies the components
+like `Body.js`. We can name it either `.js` or `.jsx` as per our requirement.
+
+
+# Import / Export
+
+There are two naming `import/export` there provided by react.
+
+`default export` : The default export is used to export a component and used in inside some other component via import.
+    - export default <component_name>
+    - import <component_name> from <source>
+
+`named export` : The named export is used when we want to export two ReactElement/Object/Variable.
+    - export const <component_name>
+    - import {component_name} from <source> => `The { } is used to import a named export variable/object `
+
+We can use `default/named` export at the same time.
+    - export const Header
+    - export default Header
+
+
+# We can do all this till now via Html,Css,JS? Then why React?
+
+Yes, we can make app using the old way, but React enables us to write efficient code that developer could understand and React provide performance ready app, `because React is efficient in DOM manipulation`.
+
+# How we can change a variable, so that the UI also change along with the variable changes?
+
+For this purpose, React provide us with special variables named as `Hook`, they are just like normal function/utilities provided by React.
+
+The are `named exports`, that are provided by package `react`.
+    - useState ` const [a,seta] = useState()`
+    - useEffect
+
+# Virtual DOM
+
+The `Virtual DOM` is the representation of `Actual DOM (<tags>)`. Virtual DOM is actually a normal JS Object.
+
+
+# Diff Algorithm
+
+The `Diff Algorithm`find the different b/w the old VD and new VD and render the difference and actually alter the DOM.
+
+# Reconciliation Algorithm ( React Fiber (React 16) )
+
+In React16 a new algorithm came to find the diff and updating the DOM. Finding out the difference b/w HTML tags is tough, rather then Object. This algorithm find the difference b/w the Object, then it actually updated the DOM. React do't touch the
+DOM alot, that is why React is Fast. When there is change in state variable it will find the difference b/w virtual dom and 
+update the DOM.
+
+React is doing efficient DOM manipulation.
+
+# Monolith Architecture & Microservices Architecture
+
+Monolith architecture is a way to implement all the code and logic inside a single coupled application. While Microservices
+architecture is way to connect various services like UI,DB and Data explicitly in their own domain and connect each one to
+make a large application.
+
+# UseEffect hook
+
+There were two approaches in industry before.
+
+    - Loads -> call api -> render
+    - Loads -> render -> call api -> rerender
+
+The useEffect hooks is used to call API and then after component render it called the useEffect hook after it.
+
+# myFunction vs myFunction()
+
+`myFunction` is called by reference when called via onClick it will execute the code while `myFunction()` called the function 
+when the code run and throw undefined when button is clicked.
