@@ -218,7 +218,157 @@ There were two approaches in industry before.
 
 The useEffect hooks is used to call API and then after component render it called the useEffect hook after it.
 
+    useEffect(()=>{
+
+    },[])
+
+    - 
+
 # myFunction vs myFunction()
 
 `myFunction` is called by reference when called via onClick it will execute the code while `myFunction()` called the function 
 when the code run and throw undefined when button is clicked.
+
+
+# useEffect() Hook
+
+This hook came with two parameters one is callback function and dependency. `useEffect()` is call after the components rendered. 
+    - When [] dependency is declared the `useEffect` is called on initial render, after component is rendered.
+    - When there is no dependency the `useEffect` is called on each render.
+    - When [variable] the `useEffect` is called when the variable gets updated.
+
+# useState() Hook
+
+Some thing to consider when using these hooks, never used it inside:
+    - if ()
+    - for loop
+      too avoid any uncertainty
+
+# React-router Library
+
+It allows us to create route for the app, with `createBrowserRouter` we can define the list of route there path, element to render when user go to that route.
+
+    - createBrowserRouter([
+        {
+            path:'/',
+            element:<component/>,
+            children:[
+                {
+                    path:'/about',
+                    element:<About/>,
+                },
+                {
+                    path:'/contact',
+                    element:<Contact/>,
+                }
+            ]
+            errorElement:<component/>,
+
+        }
+    ])
+
+# RouterProvider
+
+Passes the router instance to the app, enabling navigation.
+
+    - const root = ReactDOM.createRoot(document.getElementById("root"));
+    - root.render(<RouterProvider router={router}/>);
+
+
+# Client Side Routing & Server Side Routing 
+
+Client side routing enables us to navigate b/w page without page reload. For this purpose React is also know as
+`Single Page Application`, as it allow to navigate b/w component with no network call/request.
+
+Server-side routing is the traditional way of navigating between web pages:
+    How It Works:
+     - The browser sends an HTTP request to the server.
+     - The server processes the request and sends back the entire HTML page.
+     - The browser reloads and renders the new page.
+
+
+# Class Component vs Function Components
+
+`Functional Components` are normal JS `f(n)` that return some piece of JSX.
+
+`Class Components` are normal JS `class` that use a `render()` method to return JSX.
+
+# super()
+
+In order to use the this class in the derived class we have to used `super()` to enable the used of this class in the 
+derived class.
+
+# Class props
+
+To get the `props` in the class based components inside the class based components we use
+
+    - constructor(props){
+        super(props)
+    }
+
+    render(){
+        return{
+            <> {this.props.prosName}
+        }
+    }
+
+# Class lifecycle
+
+When parent is rendered first
+    - parent constructor
+    - parent render()
+    
+    - child constructor
+    - child render()
+
+    - child componentDidMount()
+    - parent componentDidMount()
+
+# Life Cycle
+
+`Render Phase`:
+
+    - constructor
+    - render()
+
+`Commit Phase` :    
+    - componentDidMount()    
+    - componentWillUpdate()
+    - componentWillUnmount()
+    
+    /**
+        ------ Mounting ------
+                - constructor(dummy)
+                - render(dummy)
+                    - HTML (dummy)
+
+            -- componentDidMount()
+                - <API Call>    
+                - <this.setState> 
+                        -------> state variable updated
+
+        ----- Updating -----
+
+            render( Api Data)
+                - HTML ( With API Data )
+            -- componentDidUpdate()
+        
+        ----- Unmounting ---
+
+            componentWillUnmount()
+
+             
+     */
+
+# Hooks
+
+Hooks are normal utility function for a specific purpose.
+
+# bundling / Chunking / Dynamic loading / code- splitting / lazy loading / On demand loading
+
+For this purpose we use `{lazy} from 'react'` to make the above things, instead of call the component on initial load, we will
+load the component that is large into another bundle to reduce the loading time / increase performance.
+
+    - import {lazy} from 'react'
+
+    const Grocery  = lazy(()=> import('./components/Grocery'))
